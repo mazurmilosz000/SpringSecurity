@@ -1,4 +1,4 @@
-package com.milosz000.springsecurity.entity.repository;
+package com.milosz000.springsecurity.repository;
 
 import com.milosz000.springsecurity.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
