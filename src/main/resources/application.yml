@@ -1,0 +1,19 @@
+# TODO: figure out, why spring cannot find secrets.yml
+
+spring:
+#  config:
+#    import: file:secrets.yml
+  datasource:
+    # postgres database running on port 5530 in docker container
+    # instead of secrets.yml, I used env variables in IDE
+    url: jdbc:postgresql://localhost:5330/${DB_NAME}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect

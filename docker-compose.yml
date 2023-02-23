@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  db:
+    container_name: postgresSpringSecurity
+    image: postgres:14.1-alpine
+    restart: unless-stopped
+    ports:
+      - "5330:5432"
+    environment:
+        POSTGRES_USER: ${DB_USERNAME}
+        POSTGRES_PASSWORD: ${DB_PASSWORD}
+        POSTGRES_DB: ${DB_NAME}
+        PGDATA: /data/postgres
+    volumes:
+      - db:/data/postgres
+volumes:
+  db:
+
