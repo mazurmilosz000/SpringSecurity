@@ -38,22 +38,21 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // NotBlank annotation means: the string is not null and the trimmed length is greater than zero -> " " is not valid
-    @NotBlank(message = "Please enter your name")
+
+    @Column(nullable = false)
     private String firstName;
 
-    @NotBlank(message = "Please enter your last name")
+    @Column(nullable = false)
     private String lastName;
 
     @Email(message = "Invalid email. Please enter proper email")
-    @NotBlank(message = "Please enter your email")
+    @Column(nullable = false)
     private String email;
 
     /* generate column as a VARCHAR(60) and trying to insert a longer sting will result in an SQL error
     @Column is used only to specify table column properties, so it doesn't provide validations.
     Length is set to 60 because BCrypt algorithm generates a String o length 60 */
-    @Column(length = 60)
-    @NotBlank(message = "Please enter your password")
+    @Column(length = 60, nullable = false)
     private String password;
 
     // values are store as strings (ORDINAL = ints)
