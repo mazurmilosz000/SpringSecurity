@@ -1,5 +1,6 @@
 # TODO: figure out, why spring cannot find secrets.yml
 
+
 spring:
 #  config:
 #    import: file:secrets.yml
@@ -17,3 +18,4 @@ spring:
       hibernate:
         format_sql: true
         dialect: org.hibernate.dialect.PostgreSQLDialect
+

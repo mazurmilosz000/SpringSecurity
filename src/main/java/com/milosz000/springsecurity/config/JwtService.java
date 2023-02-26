@@ -21,9 +21,15 @@ public class JwtService {
     // JWT expiration time
     private static final int JWT_VALIDITY = 5 * 60 * 60;
 
+
+
+    // TODO: fix env variables
     // use a value from .env
-    @Value("${JWT_SECRET}")
-    private String SECRET_KEY;
+   //  @Value("${JWT_SECRET}")
+    // private final String SECRET_KEY = System.getProperty("JWT_SECRET");
+    private final String SECRET_KEY = "F31ADD382EF16309DA681CA917E4E03B95E084D4E2DB57DE10A5D971D9C4A712";
+
+
 
 
     public String getUsername(String token) {

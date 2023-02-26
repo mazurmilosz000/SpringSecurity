@@ -52,10 +52,10 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                 new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword())
         );
         // if user not exists then throw exception
-        User user = userRepository.findByEmail(request.getEmail()).orElseThrow(
+        var user = userRepository.findByEmail(request.getEmail()).orElseThrow(
                 () -> new UsernameNotFoundException("User not found"));
 
-        String token = jwtService.generateToken(user);
+        var token = jwtService.generateToken(user);
 
         return AuthenticationResponseDto.builder()
                 .token(token)
